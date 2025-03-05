@@ -11,14 +11,16 @@ import java.util.Scanner;
 //Creamos nuestro menu principal
 public class Main {
 
+    //Solicitamos el nombre al aventurero y le damos la bienvenida
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Hola aventurero! Estas listo para la aventura? Cual es tu nombre: ");
+        System.out.print("¡Hola aventurero! ¿Estas listo para la aventura?  Cuál es tu nombre: ");
         String NombreAventurero = scanner.nextLine();
-        System.out.println("Bienvenido, " + NombreAventurero + ". Este es tu diario de aventuras!");
+        System.out.println("Bienvenido, " + NombreAventurero + ". ¡Este es tu diario de aventuras!");
 
         DiarioAventurero diario = new DiarioAventurero();
 
+        //Creamos el menú y lo mostramos
         while (true){
             System.out.println("Diario de Aventuras de " + NombreAventurero );
             System.out.println("1. Registrar nueva misión");
@@ -28,11 +30,14 @@ public class Main {
             System.out.println("5. Eliminar una misión pendiente");
             System.out.println("6. Buscar una misión");
             System.out.println("7. Salir");
-            System.out.print("Ingresa la opcion de lo que deseas hacer: ");
+
+            //Solicitamos la opción al usuario
+            System.out.print("Ingresa la opción de lo que deseas hacer: ");
 
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
+            //Con la opcion entramos al menú para realizar alguna tarea
             switch (opcion) {
                 case 1:
                     diario.RegistrarMision();
@@ -53,10 +58,10 @@ public class Main {
                     diario.BuscarMision();
                     break;
                 case 7:
-                    System.out.println("Nos vemos a la proxima, " + NombreAventurero );
+                    System.out.println("Nos vemos a la próxima, " + NombreAventurero );
                     return;
                 default:
-                    System.out.println("Has ingresado una opcion invalida. Vuelve a intentarlo.");
+                    System.out.println("Has ingresado una opción invalida. Vuelve a intentarlo.");
             }
 
         }

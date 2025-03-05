@@ -22,34 +22,37 @@ public class DiarioAventurero {
         scanner = new Scanner(System.in);
     }
 
-    //Creamos nuestros metodos de las acciones del menu
+    //Creamos nuestros métodos de las acciones del menú
 
-    //Creamos nuestro metodo Registrar Mision
+    //Creamos nuestro método registrar mision
+    //Este nos pide escribir nuestra misión para registrarla en la lista de pendientes.
     public void RegistrarMision(){
         while (true) {
             System.out.print("Ingrese el nombre de su nueva misión o selecciona opción 0 para regresar: ");
             String NuevaMision = scanner.nextLine();
-            //Opcion para regresar al menu principal
+            //Opcion para regresar al menú principal
             if (NuevaMision.equals("0")) return;
             MisionesPendientes.add(NuevaMision);
             System.out.println("Misión agregada en su lista de pendientes.");
         }
     }
 
-    //Creamos nuestro metodo Mostrar misiones pendientes
+    //Creamos nuestro método Mostrar misiones pendientes.
+    //Este nos muestra nuestras misiones pendientes si las hubiera.
     public void MostarMisionesPendientes(){
         if (MisionesPendientes.isEmpty()){
             System.out.println("No tiene misiones pendientes.");
             return;
         }
-        System.out.println("Estas son sus misones pendientes: ");
+        System.out.println("Estas son sus misiones pendientes: ");
         for (int i=0; i < MisionesPendientes.size(); i++){
             System.out.println((i+1) + ". " + MisionesPendientes.get(i));
         }
     }
 
 
-    //Creamos nuestro metodo Completar misiones
+    //Creamos nuestro método Completar misiones
+    //Este nos da la opción de ver la lista de pendientes y completar la misión
     public void CompletarMision(){
         while (true) {
             MostarMisionesPendientes();
@@ -69,9 +72,10 @@ public class DiarioAventurero {
     }
 
     //Creamos nuestro metodo Mostrar misiones Completadas
+    //Este nos muestra la lista de misiones completadas y si no hay nos dice que no se han completado.
     public void MostrarMisionesCompletadas(){
         if (MisionesCompletadas.isEmpty()) {
-            System.out.println("🏆 No has completado ninguna mision todavia.");
+            System.out.println("No has completado ninguna mision todavia.");
             return;
         }
         System.out.println("Misiones Completadas:");
@@ -81,7 +85,8 @@ public class DiarioAventurero {
 
     }
 
-    //Creamos nuestro metodo Eliminar misiones
+    //Creamos nuestro método Eliminar misiones
+    //Este nos muestra las misiones pendientes si hubieran y nos pregunta si las queremos eliminar seleccionándola por opción.
     public void EliminarMision(){
         while (true) {
             MostarMisionesPendientes();
@@ -89,12 +94,12 @@ public class DiarioAventurero {
                 System.out.println("No tienes misiones pendientes.");
                 return;
             }
-            System.out.print("Ingresa el numero de la mision que deseas eliminaro o selecciona opción 0 para regresar: ");
+            System.out.print("Ingresa el numero de la misión que deseas eliminar o selecciona opción 0 para regresar: ");
             int opcion = scanner.nextInt();
             if (opcion == 0) return;
             if (opcion > 0 && opcion <= MisionesPendientes.size()) {
                 String Eliminada = MisionesPendientes.remove(opcion - 1);
-                System.out.println("Se ha eliminado la mision seleccionada " + Eliminada);
+                System.out.println("Se ha eliminado la misión seleccionada " + Eliminada);
             } else {
                 System.out.println("Opción no válida");
             }
@@ -102,7 +107,8 @@ public class DiarioAventurero {
 
     }
 
-    //Creamos nuestro metodo Mostrar misiones pendientes
+    //Creamos nuestro método Mostrar misiones pendientes
+    //Este nos muestra las dos listas y podemos buscar la misión y nos dice si ya está completada o aun está pendiente.
     public void BuscarMision(){
         while (true) {
             System.out.println("Buscar misión:");
@@ -112,13 +118,12 @@ public class DiarioAventurero {
             String MisionBuscada = scanner.nextLine();
             if (MisionBuscada.equals("0")) return;
             if (MisionesPendientes.contains(MisionBuscada)) {
-                System.out.println("Misión " + MisionBuscada + " todavia esta pendiente.");
+                System.out.println("Misión " + MisionBuscada + " todavía está pendiente.");
             } else if (MisionesCompletadas.contains(MisionBuscada)) {
-                System.out.println("Misión " + MisionBuscada + " ya esta completada.");
+                System.out.println("Misión " + MisionBuscada + " ya está completada.");
             } else {
                 System.out.println("Misión no encontrada.");
             }
         }
-
     }
 }
