@@ -70,6 +70,14 @@ public class DiarioAventurero {
 
     //Creamos nuestro metodo Mostrar misiones Completadas
     public void MostrarMisionesCompletadas(){
+        if (MisionesCompletadas.isEmpty()) {
+            System.out.println("🏆 No has completado ninguna mision todavia.");
+            return;
+        }
+        System.out.println("Misiones Completadas:");
+        for (int i = 0; i < MisionesCompletadas.size(); i++) {
+            System.out.println((i + 1) + ". " + MisionesCompletadas.get(i));
+        }
 
     }
 

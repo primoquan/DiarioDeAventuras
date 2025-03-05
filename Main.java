@@ -46,12 +46,7 @@ public class Main {
                 case 4:
                     diario.MostrarMisionesCompletadas();
                     break;
-                case 5:
-                    diario.EliminarMision();
-                    break;
-                case 6:
-                    diario.BuscarMision();
-                    break;
+
                 case 7:
                     System.out.println("Nos vemos a la proxima, " + NombreAventurero );
                     return;
