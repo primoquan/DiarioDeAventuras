@@ -51,6 +51,20 @@ public class DiarioAventurero {
 
     //Creamos nuestro metodo Completar misiones
     public void CompletarMision(){
+        while (true) {
+            MostarMisionesPendientes();
+            System.out.println("Ingrese el número de la misión para completarla o seleccione opción 0 para regresar: ");
+            int opcion = scanner.nextInt();
+            scanner.nextLine();
+            if (opcion == 0) return;
+            if (opcion > 0 && opcion <= MisionesPendientes.size()) {
+                String MisionCompletada = MisionesPendientes.remove(opcion - 1);
+                MisionesCompletadas.add(MisionCompletada);
+                System.out.println("La misión " + MisionCompletada + " ha sido completada.");
+            } else {
+                System.out.println("Opción no válida");
+            }
+        }
 
     }
 
