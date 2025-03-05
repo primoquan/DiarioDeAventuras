@@ -104,6 +104,21 @@ public class DiarioAventurero {
 
     //Creamos nuestro metodo Mostrar misiones pendientes
     public void BuscarMision(){
+        while (true) {
+            System.out.println("Buscar misión:");
+            MostarMisionesPendientes();
+            MostrarMisionesCompletadas();
+            System.out.print("Ingrese el nombre de la misión o selecciona opción 0 para regresar: ");
+            String MisionBuscada = scanner.nextLine();
+            if (MisionBuscada.equals("0")) return;
+            if (MisionesPendientes.contains(MisionBuscada)) {
+                System.out.println("Misión " + MisionBuscada + " todavia esta pendiente.");
+            } else if (MisionesCompletadas.contains(MisionBuscada)) {
+                System.out.println("Misión " + MisionBuscada + " ya esta completada.");
+            } else {
+                System.out.println("Misión no encontrada.");
+            }
+        }
 
     }
 }
