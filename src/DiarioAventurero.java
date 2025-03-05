@@ -27,7 +27,7 @@ public class DiarioAventurero {
     //Creamos nuestro metodo Registrar Mision
     public void RegistrarMision(){
         while (true) {
-            System.out.print("Ingrese el nombre de su nueva misión o seleccione opción 0 para regresar: ");
+            System.out.print("Ingrese el nombre de su nueva misión o selecciona opción 0 para regresar: ");
             String NuevaMision = scanner.nextLine();
             //Opcion para regresar al menu principal
             if (NuevaMision.equals("0")) return;
@@ -53,7 +53,7 @@ public class DiarioAventurero {
     public void CompletarMision(){
         while (true) {
             MostarMisionesPendientes();
-            System.out.println("Ingrese el número de la misión para completarla o seleccione opción 0 para regresar: ");
+            System.out.println("Ingrese el número de la misión para completarla o selecciona opción 0 para regresar: ");
             int opcion = scanner.nextInt();
             scanner.nextLine();
             if (opcion == 0) return;
@@ -83,6 +83,22 @@ public class DiarioAventurero {
 
     //Creamos nuestro metodo Eliminar misiones
     public void EliminarMision(){
+        while (true) {
+            MostarMisionesPendientes();
+            if (MisionesPendientes.isEmpty()) {
+                System.out.println("No tienes misiones pendientes.");
+                return;
+            }
+            System.out.print("Ingresa el numero de la mision que deseas eliminaro o selecciona opción 0 para regresar: ");
+            int opcion = scanner.nextInt();
+            if (opcion == 0) return;
+            if (opcion > 0 && opcion <= MisionesPendientes.size()) {
+                String Eliminada = MisionesPendientes.remove(opcion - 1);
+                System.out.println("Se ha eliminado la mision seleccionada " + Eliminada);
+            } else {
+                System.out.println("Opción no válida");
+            }
+        }
 
     }
 
