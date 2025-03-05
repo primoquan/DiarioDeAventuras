@@ -54,6 +54,7 @@ public class Main {
                     break;
                 case 7:
                     System.out.println("Nos vemos a la proxima, " + NombreAventurero );
+                    return;
                 default:
                     System.out.println("Has ingresado una opcion invalida. Vuelve a intentarlo.");
             }

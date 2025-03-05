@@ -26,7 +26,14 @@ public class DiarioAventurero {
 
     //Creamos nuestro metodo Registrar Mision
     public void RegistrarMision(){
-
+        while (true) {
+            System.out.print("Ingrese el nombre de su nueva misión o seleccione opción 0 para regresar");
+            String NuevaMision = scanner.nextLine();
+            //Opcion para regresar al menu principal
+            if (NuevaMision.equals("0")) return;
+            MisionesPendientes.add(NuevaMision);
+            System.out.println("Misión agregada en su lista de pendientes.");
+        }
     }
 
     //Creamos nuestro metodo Mostrar misiones pendientes
