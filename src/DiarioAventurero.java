@@ -27,7 +27,7 @@ public class DiarioAventurero {
     //Creamos nuestro metodo Registrar Mision
     public void RegistrarMision(){
         while (true) {
-            System.out.print("Ingrese el nombre de su nueva misión o seleccione opción 0 para regresar");
+            System.out.print("Ingrese el nombre de su nueva misión o seleccione opción 0 para regresar: ");
             String NuevaMision = scanner.nextLine();
             //Opcion para regresar al menu principal
             if (NuevaMision.equals("0")) return;
@@ -38,8 +38,16 @@ public class DiarioAventurero {
 
     //Creamos nuestro metodo Mostrar misiones pendientes
     public void MostarMisionesPendientes(){
-
+        if (MisionesPendientes.isEmpty()){
+            System.out.println("No tiene misiones pendientes.");
+            return;
+        }
+        System.out.println("Estas son sus misones pendientes: ");
+        for (int i=0; i < MisionesPendientes.size(); i++){
+            System.out.println((i+1) + ". " + MisionesPendientes.get(i));
+        }
     }
+
 
     //Creamos nuestro metodo Completar misiones
     public void CompletarMision(){
